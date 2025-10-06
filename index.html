@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Finance Tracker</title>
+  <meta name="description" content="Track income, expenses, budgets, and reports." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#overview">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand" aria-label="Site title">💸 Finance Tracker</div>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#add">Add</a></li>
+          <li><a href="#transactions">Transactions</a></li>
+          <li><a href="#budgets">Budgets</a></li>
+          <li><a href="#reports">Reports</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="overview" class="section container">
+      <h2>Overview</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="card-title">Current Balance</div>
+          <div class="metric positive">$12,540.23</div>
+          <div class="sub">as of Oct 2025</div>
+        </article>
+        <article class="card">
+          <div class="card-title">Income (This Month)</div>
+          <div class="metric positive">$6,200</div>
+          <div class="delta positive">+8% vs last month</div>
+        </article>
+        <article class="card">
+          <div class="card-title">Expenses (This Month)</div>
+          <div class="metric negative">$3,480</div>
+          <div class="delta negative">-5% vs last month</div>
+        </article>
+        <article class="card">
+          <div class="card-title">Savings Rate</div>
+          <div class="metric neutral">43%</div>
+          <div class="sub">target: 40%</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="add" class="section container">
+      <h2>Add Transaction</h2>
+      <form class="transaction-form" action="#" method="get">
+        <div class="form-grid">
+          <label>
+            <span>Date</span>
+            <input type="date" name="date" required />
+          </label>
+          <label>
+            <span>Type</span>
+            <div class="segmented" role="group" aria-label="Transaction type">
+              <input type="radio" id="type-income" name="type" value="income" checked />
+              <label for="type-income">Income</label>
+              <input type="radio" id="type-expense" name="type" value="expense" />
+              <label for="type-expense">Expense</label>
+            </div>
+          </label>
+          <label>
+            <span>Amount</span>
+            <input type="number" step="0.01" name="amount" placeholder="0.00" required />
+          </label>
+          <label>
+            <span>Category</span>
+            <select name="category">
+              <option>Salary</option>
+              <option>Rent</option>
+              <option>Groceries</option>
+              <option>Utilities</option>
+              <option>Transport</option>
+              <option>Entertainment</option>
+              <option>Healthcare</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>
+            <span>Account</span>
+            <select name="account">
+              <option>Checking</option>
+              <option>Cash</option>
+              <option>Credit Card</option>
+              <option>Savings</option>
+            </select>
+          </label>
+          <label class="span-2">
+            <span>Description</span>
+            <input type="text" name="description" placeholder="e.g., October Rent" />
+          </label>
+          <label class="span-2">
+            <span>Notes</span>
+            <textarea name="notes" rows="3" placeholder="Optional"></textarea>
+          </label>
+        </div>
+        <div class="form-actions">
+          <button type="submit">Save (Demo)</button>
+          <p class="hint">This is a static demo. No data is saved.</p>
+        </div>
+      </form>
+    </section>
+
+    <section id="transactions" class="section container">
+      <h2>Recent Transactions</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th>Account</th>
+              <th class="right">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-10-03</td>
+              <td>Salary</td>
+              <td>Salary</td>
+              <td>Checking</td>
+              <td class="right positive">+ $4,500.00</td>
+            </tr>
+            <tr>
+              <td>2025-10-04</td>
+              <td>Rent</td>
+              <td>Rent</td>
+              <td>Checking</td>
+              <td class="right negative">- $1,800.00</td>
+            </tr>
+            <tr>
+              <td>2025-10-05</td>
+              <td>Groceries</td>
+              <td>Groceries</td>
+              <td>Credit Card</td>
+              <td class="right negative">- $132.47</td>
+            </tr>
+            <tr>
+              <td>2025-10-05</td>
+              <td>Gym Membership</td>
+              <td>Healthcare</td>
+              <td>Credit Card</td>
+              <td class="right negative">- $45.00</td>
+            </tr>
+            <tr>
+              <td>2025-10-06</td>
+              <td>Freelance</td>
+              <td>Salary</td>
+              <td>Checking</td>
+              <td class="right positive">+ $1,200.00</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Net (This Month)</td>
+              <td class="right neutral">$3,722.53</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section id="budgets" class="section container">
+      <h2>Budgets</h2>
+      <div class="budgets">
+        <div class="budget">
+          <div class="budget-header">
+            <span>Groceries</span>
+            <span>$320 / $500</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" style="--progress: 64%"></div>
+          </div>
+        </div>
+        <div class="budget">
+          <div class="budget-header">
+            <span>Transport</span>
+            <span>$110 / $200</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" style="--progress: 55%"></div>
+          </div>
+        </div>
+        <div class="budget">
+          <div class="budget-header">
+            <span>Dining Out</span>
+            <span>$180 / $250</span>
+          </div>
+          <div class="progress warning">
+            <div class="progress-bar" style="--progress: 72%"></div>
+          </div>
+        </div>
+        <div class="budget">
+          <div class="budget-header">
+            <span>Entertainment</span>
+            <span>$60 / $150</span>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" style="--progress: 40%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reports" class="section container">
+      <h2>Reports</h2>
+      <div class="charts">
+        <div class="chart">
+          <div class="chart-title">Monthly Spending</div>
+          <div class="bar-chart" role="img" aria-label="Bar chart of monthly spending">
+            <div class="bar" style="--value: 45%" aria-label="Jun $1,800"></div>
+            <div class="bar" style="--value: 60%" aria-label="Jul $2,400"></div>
+            <div class="bar" style="--value: 55%" aria-label="Aug $2,200"></div>
+            <div class="bar" style="--value: 70%" aria-label="Sep $2,800"></div>
+            <div class="bar" style="--value: 62%" aria-label="Oct $2,480"></div>
+            <div class="axis">
+              <span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span>
+            </div>
+          </div>
+        </div>
+        <div class="chart">
+          <div class="chart-title">Income vs Expenses</div>
+          <div class="stacked">
+            <div class="stack">
+              <span class="label">Income</span>
+              <div class="stack-bar income" style="--value: 72%"></div>
+            </div>
+            <div class="stack">
+              <span class="label">Expenses</span>
+              <div class="stack-bar expense" style="--value: 58%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Demo UI built with HTML &amp; CSS. No data is stored.</p>
+    </div>
+  </footer>
+</body>
+</html>
